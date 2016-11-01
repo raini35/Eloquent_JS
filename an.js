@@ -48,7 +48,48 @@ console.log(ancestry.reduce(function(min, cur) {
 
 function average(array) {
 	function plus(a,b) { return a + b; }
-	return array.reduce(plus) / array.length: 
-}
+	return array.reduce(plus) / array.length; 
 }
 
+function age(p) {
+	return p.died - p.born; 
+}	
+
+function male(p) {
+	return p.sex == "m"; 
+}
+
+function female(p) {
+	return p.sex == "f"; 
+}
+
+console.log(average(ancestry.filter(male).map(age))); 
+
+console.log(average(ancestry.filter(female).map(age))); 
+
+var byName = {}; 
+ancestry.forEach(function(person) {
+	byName[person.name] = person; 
+}); 
+
+console.log(byName["Philibert Haverbeke"]); 
+
+function reduceAncestors(person, f, defaultValue) {
+	function valueFor(person) {
+		if(person == null) 
+			return defaultValue; 
+		else 
+			return f(person, valueFor(byName[person.mother]), valueFor(byName[person.father])); 
+	}
+	return valueFor(person); 
+}
+
+function sharedDNA(person, fromMother, fromFather) {
+	if(person.name == "Pauwels van Haverbeke") 
+		return 1; 
+	else 
+		return(fromMother + fromFather) / 2; 
+}
+
+var ph = byName["Philibert Haverbeke"]; 
+console.log(reduceAncestors(ph, sharedDNA, 0) / 4); 
