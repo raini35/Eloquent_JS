@@ -3,6 +3,11 @@ var ANCESTRY_FILE = require('./ancestry.js')
 var ancestry = JSON.parse(ANCESTRY_FILE); 
 console.log(ancestry.length); 
 
+function forEach(array, action) {
+	for(var i = 0; i < array.length; i++) {
+		action(array[i]); 
+	}
+}
 function filter(array, test) {
 	var passed = []; 
 	for(var i = 0; i < array.length; i++) {
