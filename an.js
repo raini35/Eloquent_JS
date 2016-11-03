@@ -98,3 +98,5 @@ function sharedDNA(person, fromMother, fromFather) {
 
 var ph = byName["Philibert Haverbeke"]; 
 console.log(reduceAncestors(ph, sharedDNA, 0) / 4); 
+
+
