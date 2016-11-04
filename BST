@@ -1,0 +1,6 @@
+BST
+left 
+Right
+Add
+Delete
+Delete All
