@@ -86,7 +86,7 @@ for (var century in byCentury) {
   console.log(century + ": " + average(ages));
 }
 
-//EVERY AND SOME 
+//EVERY AND SOME - The lesson is that you can use functions as parameters
 //INPUTS: an array and a predicate function
 //OUTPUT: true or false
 function reduce(array, combine, start) {
@@ -121,6 +121,25 @@ function some(array, test){
 	return bool; 
 }
 
+//SOLUTION 
+/*
+function every(array, predicate) {
+	for(var i = 0; i < array.length; i++) {
+		if(!predicate(array[i]))
+			return false;
+	}
+	return true; 
+}
+
+function some(array, predicate) {
+	for(var i = 0; i < array.length; i++) {
+		if (predicate(array[i]))
+			return true;
+	}
+	return false;
+}
+
+*/
 var hello = every(numbers, isNaN); 
 var hello2 = some(numbers, isNaN); 
 
