@@ -221,6 +221,7 @@ console.log(reduceAncestors(ph, sharedDNA, 0) / 4);
 var theSet = ["Carel Haverbeke", "Maria van Brussel",
               "Donald Duck"];
               
+
 function isInSet(set, person) {
 	return set.indexOf(person.name) > -1; 
 }
