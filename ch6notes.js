@@ -97,3 +97,24 @@ Rabbit.prototype.speak = function(line) {
 
 blackRabbit.speak("Doom...");
 
+//OVERRIDING DERVIED PROPERTIES
+Rabbit.prototype.teeth = "small"; 
+console.log(killerRabbit.teeth); 
+
+killerRabbit.teeth = "long, sharp, and bloody"; 
+console.log(killerRabbit.teeth); 
+
+console.log(blackRabbit.teeth); 
+
+console.log(Rabbit.prototype.teeth);
+
+//Overriding properties that exist in a prototype is often a useful to do. 
+//You can place a base class throughout the instances of the object but 
+//when you need to be more specific for an individual instance, you can 
+//override the property for specificity. 
+
+console.log(Array.prototype.toString == Object.prototype.toString); 
+			
+console.log([1, 2].toString()); 
+
+console.log(Object.prototype.toString.call([1,2])); 
