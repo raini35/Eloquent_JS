@@ -68,3 +68,32 @@ killerRabbit.type = "killer";
 killerRabbit.speak("SKREE!"); 
 
 //The protoRabbit acts as the container for all instances such as killerRabbit
+
+//CONSTRUCTORS 
+//Before you had to use Object.create() to make an instance of the object 
+//now by using new ObjectName you can create instances 
+
+function Rabbit(type) {
+	this.type = type; 
+}
+var killerRabbit = new Rabbit("killer"); 
+var blackRabbit = new Rabbit("black"); 
+console.log(blackRabbit.type); 
+console.log(blackRabbit); 
+
+//By using var ObjectName = function() {} the objectName is not included 
+//when it the object is outputted
+var rabbit = function(type) {
+	this.type = type; 
+}
+
+var hello = new rabbit("asian"); 
+console.log(hello);
+
+Rabbit.prototype.speak = function(line) {
+	console.log("The " + this.type + " rabbit says '" + 
+				line + "'"); 
+};
+
+blackRabbit.speak("Doom...");
+
