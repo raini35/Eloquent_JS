@@ -41,3 +41,30 @@ asianRabbit.speak("I'm from the Philippines.");
 //apply & call method 
 speak.apply(fatRabbit, ["Burp!"]); 
 speak.call({type: "old"}, "Oh my."); 
+
+//PROTOTYPES
+var empty = {}; 
+console.log(empty.toString); 
+console.log(empty.toString());
+
+console.log(Object.getPrototypeOf({}) ==
+			Object.prototype); 
+console.log(Object.getPrototypeOf(Object.prototype)); 
+
+console.log(Object.getPrototypeOf(isNaN) ==
+			Function.prototype); 
+console.log(Object.getPrototypeOf([]) == 
+			Array.prototype); 
+
+var protoRabbit = {
+	speak: function(line) {
+		console.log("The " + this.type + " rabbit says '" + 
+					line + "'"); 
+	}
+}; 
+
+var killerRabbit = Object.create(protoRabbit); 
+killerRabbit.type = "killer"; 
+killerRabbit.speak("SKREE!"); 
+
+//The protoRabbit acts as the container for all instances such as killerRabbit
