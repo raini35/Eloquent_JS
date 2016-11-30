@@ -167,3 +167,14 @@ for(var name in map) {
 		//..this is an own property
 	}
 }
+
+//PROTOTYPE-LESS OBJECTS
+//You can create objects with null as the prototype so that you can create an 
+//object with no prototype 
+//Uses: when you want to make sure that your object doesn't change any 
+//non-enumerable property ie setting hasOwnProperty to the value of 42
+
+var map = Object.create(null); 
+map["pizza"] = 0.069; 
+console.log("toString" in map); 
+console.log("pizza" in map); 
