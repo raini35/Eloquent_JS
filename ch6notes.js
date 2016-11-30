@@ -14,3 +14,30 @@ without knowing what's going inside.
 Encapsulation - distinguishing between internal and external interface
 
 */
+
+//METHODS
+
+var rabbit = {}; 
+rabbit.speak = function(line) {
+	console.log("The rabbit says '" + line +"'"); 
+};
+
+console.log(rabbit); 
+rabbit.speak("I'm alive."); 
+
+function speak(line) {
+	console.log("The " + this.type + " rabbit says '" + 
+				line + "'"); 
+}
+
+var whiteRabbit = {type: "white", speak: speak }; 
+var fatRabbit = {type: "fat", speak: speak }; 
+var asianRabbit = {type: "asian", speak: speak}; 
+
+whiteRabbit.speak("Oh my ears and whiskers, how late it's getting!"); 
+fatRabbit.speak("I could sure use a carrot right now."); 
+asianRabbit.speak("I'm from the Philippines."); 
+
+//apply & call method 
+speak.apply(fatRabbit, ["Burp!"]); 
+speak.call({type: "old"}, "Oh my."); 
