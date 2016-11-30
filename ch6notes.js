@@ -118,3 +118,52 @@ console.log(Array.prototype.toString == Object.prototype.toString);
 console.log([1, 2].toString()); 
 
 console.log(Object.prototype.toString.call([1,2])); 
+
+//PROTOTYPE INTERFERENCE 
+//A prototype can be used at any time to add new properties and methods to 
+//all objects based on it. 
+
+Rabbit.prototype.dance = function() {
+	console.log("The " + this.type + " rabbit dances a jig."); 
+}; 	
+
+killerRabbit.dance(); 
+
+var map = {}; 
+function storePhi(event, phi) {
+	map[event] = phi; 
+}	
+
+storePhi("pizza", 0.069); 
+storePhi("touched tree", -0.081);
+
+Object.prototype.nonsense = "hi";
+for(var name in map)
+	console.log(name); 
+	
+console.log("nonsense" in map); 
+console.log("toString" in map); 
+
+delete Object.prototype.nonsense; 
+
+//Enumerable vs Non-enumerable Properties
+//Enmerable properties - all properties that we create by simply assigning
+//to them are enumerable
+//Non-enumerable - the standard properties of an object are all non-enumerable
+
+Object.defineProperty(Object.prototype, "hiddenNonsense", {enumerable: false, value: "hi"});
+
+for (var name in map) 
+	console.log(name); 
+
+console.log(map.hiddenNonsense);
+
+console.log(map.hasOwnProperty("toString"));
+
+
+//When you are worried that someone might have messed with the base object prototype...
+for(var name in map) {
+	if(map.hasOwnProperty(name)){
+		//..this is an own property
+	}
+}
