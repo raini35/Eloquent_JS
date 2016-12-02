@@ -90,11 +90,14 @@ console.log(sc.minHeight());
 console.log(sc.draw(3, 2));
 
 //SEQUENCE INTERFACE
-
+//Create two constructors ArraySeq and RangeSeq. 
+//My initial thought was that you had to create an entirely 
+//new array when you constructed.However you could have just 
+//set an array property equal to the input array
 function logFive(sequence) {
   for (var i = 0; i < 5; i++) {
     if (!sequence.next())
-      break;
+      break;x
     console.log(sequence.current());
   }
 }
