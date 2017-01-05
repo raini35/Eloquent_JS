@@ -1,6 +1,6 @@
-//car and cat
+//REGEXP GOLF
 
-/ca(r|t)/
+///ca(r|t)/
 //pop and prop
 //ferret, ferry, and ferrari
 //Any word ending in ious
@@ -33,3 +33,15 @@ function verify(regexp, yes, no) {
 }
 var match = /\b[a-df-z]+\b/i.exec("red blu platypus blue")
 console.log(match); 
+
+
+//QUOTING STYLE 
+
+var text = "'I'm the cook,' he said, 'it's my job.'";
+var regex = /(^|\W)'|'(\W\|$)/g; 
+console.log(text.replace(regex, '$1"$2')); 
+//It iterates through the entire text file 
+//When it recognizes 1 or 2 it then initiates the replace function 
+//it can either do one of two things 
+//Gets the start or non word character (1) and then replace the ' with " 
+//Gets the non word character or last (2) and then replace the ' with " 
