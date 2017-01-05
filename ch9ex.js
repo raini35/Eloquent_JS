@@ -12,12 +12,24 @@
 /pr?op/
 /ferr[et|y|ari]/
 /\w+ious/
-/\b\b/
-/\w{9,}/
-//
+/ (\?|=|\+|.)/
+/\w{7,}/
+/\b[a-df-z]+\b/
 */
 
-var notBinary = /[^e]+/;
-console.log(notBinary.test("bee"));
-// → false
-console.log(notBinary.test("bbbebbbbbb"));
+
+
+function verify(regexp, yes, no) {
+  // Ignore unfinished exercises
+  if (regexp.source == "...") return;
+  yes.forEach(function(s) {
+    if (!regexp.test(s))
+      console.log("Failure to match '" + s + "'");
+  });
+  no.forEach(function(s) {
+    if (regexp.test(s))
+      console.log("Unexpected match for '" + s + "'");
+  });
+}
+var match = /\b[a-df-z]+\b/i.exec("red blu platypus blue")
+console.log(match); 
