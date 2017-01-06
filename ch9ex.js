@@ -45,3 +45,8 @@ console.log(text.replace(regex, '$1"$2'));
 //it can either do one of two things 
 //Gets the start or non word character (1) and then replace the ' with " 
 //Gets the non word character or last (2) and then replace the ' with " 
+
+
+//NUMBERS AGAIN 
+var regexTest = /^-?\d+e?-?\+?\d+$/gi; 
+console.log(regexTest.test("1e-12")); 
