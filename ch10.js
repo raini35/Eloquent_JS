@@ -93,6 +93,4 @@ function require(name) {
 }
 
 //SLOW-LOADING MODULES 
-define(["weekDay", "today"], function(weekDay, today) {
-	console.log(weekDay.name(today.dayNumber())); 
-}); 
+
