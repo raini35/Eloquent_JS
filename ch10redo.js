@@ -49,3 +49,26 @@ function require(name) {
 
 require.cache = Object.create(null); 
 
+//SLOW-LOADING MODULES
+define(["weekDay", "today"], function(weekDay, today) {
+	console.log(weekDay.name(today.dayNumber())); 
+}); 
+
+var defineCache = Object.create(null); 
+var currentMod = null; 
+
+function getModule(name) {
+	if (name in defineCache) 
+		return defineCache[name]; 
+		
+	var module = {exports: null, 
+				  loaded: false, 
+				  onLoad: []}; 
+	defineCache[name] = module; 
+	backgroundReadFile(name, function(code) {
+		currentMod = module; 
+		new Function("", code)(); 
+	}); 
+	
+	return module; 
+}
